@@ -36,9 +36,9 @@ class BreweryClientTest {
     @Test
     void testUpdateBeerById(){
         //given
-        BeerDto beerDto = BeerDto.builder().beerName("New Beer").build();
+        BeerDto beerDto = BeerDto.builder().id(UUID.randomUUID()).beerName("New Beer").build();
 
-        client.updateBeer(UUID.randomUUID(), beerDto);
+        client.updateBeer(beerDto);
     }
 
     @Test
@@ -64,8 +64,8 @@ class BreweryClientTest {
     @Test
     void testUpdateCustomer () {
         //given
-        CustomerDto dto = CustomerDto.builder().name("New Customer").build();
-        client.updateCustomerById(UUID.randomUUID(), dto);
+        CustomerDto dto = CustomerDto.builder().id(UUID.randomUUID()).name("New Customer").build();
+        client.updateCustomerById(dto);
     }
 
     @Test

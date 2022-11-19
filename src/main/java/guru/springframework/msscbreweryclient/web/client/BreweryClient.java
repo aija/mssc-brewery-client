@@ -36,8 +36,8 @@ public class BreweryClient {
         return restTemplate.postForLocation(apihost + BEER_PATH_V1, beerDto);
     }
 
-    public void updateBeer (UUID uuid, BeerDto beerDto){
-        restTemplate.put(apihost + BEER_PATH_V1 + "/" + uuid.toString(), beerDto);
+    public void updateBeer (BeerDto beerDto){
+        restTemplate.put(apihost + BEER_PATH_V1 + "/" + beerDto.getId(), beerDto);
     }
 
     public void deleteBeer (UUID uuid) {
@@ -52,8 +52,8 @@ public class BreweryClient {
         return restTemplate.postForLocation(apihost + CUSTOMER_URI_V1, customerDto);
     }
 
-    public void updateCustomerById (UUID uuid, CustomerDto customerDto) {
-        restTemplate.put(apihost + CUSTOMER_URI_V1 + "/" + uuid, customerDto);
+    public void updateCustomerById (CustomerDto customerDto) {
+        restTemplate.put(apihost + CUSTOMER_URI_V1 + "/" + customerDto.getId(), customerDto);
     }
 
     public void deleteCustomer (UUID uuid) {
