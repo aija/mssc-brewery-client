@@ -37,15 +37,15 @@ public class BreweryClient {
     }
 
     public void updateBeer (BeerDto beerDto){
-        restTemplate.put(apihost + BEER_PATH_V1 + "/" + beerDto.getId(), beerDto);
+        restTemplate.put(apihost + BEER_PATH_V1 + beerDto.getId(), beerDto);
     }
 
     public void deleteBeer (UUID uuid) {
-        restTemplate.delete(apihost + BEER_PATH_V1 + "/" + uuid);
+        restTemplate.delete(apihost + BEER_PATH_V1 + uuid);
     }
 
     public CustomerDto getCustomerById (UUID uuid) {
-        return restTemplate.getForObject(apihost + CUSTOMER_URI_V1 + "/" + uuid, CustomerDto.class);
+        return restTemplate.getForObject(apihost + CUSTOMER_URI_V1 + uuid, CustomerDto.class);
     }
 
     public URI newCustomer (CustomerDto customerDto) {
@@ -53,11 +53,11 @@ public class BreweryClient {
     }
 
     public void updateCustomerById (CustomerDto customerDto) {
-        restTemplate.put(apihost + CUSTOMER_URI_V1 + "/" + customerDto.getId(), customerDto);
+        restTemplate.put(apihost + CUSTOMER_URI_V1 + customerDto.getId(), customerDto);
     }
 
     public void deleteCustomer (UUID uuid) {
-        restTemplate.delete(apihost + CUSTOMER_URI_V1 + "/" + uuid);
+        restTemplate.delete(apihost + CUSTOMER_URI_V1 + uuid);
     }
 
 }
