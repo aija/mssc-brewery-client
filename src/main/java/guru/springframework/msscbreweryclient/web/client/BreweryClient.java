@@ -28,8 +28,8 @@ public class BreweryClient {
         this.apihost = apihost;
     }
 
-    public BeerDto getBeerById(UUID uuid){
-        return restTemplate.getForObject(apihost + BEER_PATH_V1 + uuid.toString(), BeerDto.class);
+    public BeerDto getBeerById(UUID beerId){
+        return restTemplate.getForObject(apihost + BEER_PATH_V1 + beerId, BeerDto.class);
     }
 
     public URI newBeer (BeerDto beerDto) {
@@ -40,12 +40,12 @@ public class BreweryClient {
         restTemplate.put(apihost + BEER_PATH_V1 + beerDto.getId(), beerDto);
     }
 
-    public void deleteBeer (UUID uuid) {
-        restTemplate.delete(apihost + BEER_PATH_V1 + uuid);
+    public void deleteBeer (UUID beerId) {
+        restTemplate.delete(apihost + BEER_PATH_V1 + beerId);
     }
 
-    public CustomerDto getCustomerById (UUID uuid) {
-        return restTemplate.getForObject(apihost + CUSTOMER_URI_V1 + uuid, CustomerDto.class);
+    public CustomerDto getCustomerById (UUID customerId) {
+        return restTemplate.getForObject(apihost + CUSTOMER_URI_V1 + customerId, CustomerDto.class);
     }
 
     public URI newCustomer (CustomerDto customerDto) {
@@ -56,8 +56,8 @@ public class BreweryClient {
         restTemplate.put(apihost + CUSTOMER_URI_V1 + customerDto.getId(), customerDto);
     }
 
-    public void deleteCustomer (UUID uuid) {
-        restTemplate.delete(apihost + CUSTOMER_URI_V1 + uuid);
+    public void deleteCustomer (UUID customerId) {
+        restTemplate.delete(apihost + CUSTOMER_URI_V1 + customerId);
     }
 
 }
