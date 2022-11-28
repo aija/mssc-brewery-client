@@ -14,7 +14,7 @@
     <name>mssc-brewery-client</name>
     <description>mssc-brewery-client</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -63,6 +63,12 @@
             <artifactId>mockito-junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+            <version>4.1.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -84,13 +90,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
             </plugin>
             <!--            require maven 3.60 or higher, require Java 11 or higher-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.0.0-M7</version>
                 <executions>
                     <execution>
                         <id>enforce-versions</id>
@@ -131,6 +135,12 @@
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
         </repository>
+
+        <repository>
+            <id>apache</id>
+            <name>Apache HttpComponents Parent</name>
+            <url>https://hc.apache.org</url>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -146,6 +156,11 @@
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>apache</id>
+            <name>Apache HttpComponents Parent</name>
+            <url>https://hc.apache.org</url>
         </pluginRepository>
     </pluginRepositories>
 
